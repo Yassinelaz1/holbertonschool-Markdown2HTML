@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-markdown 2 html 
+markdown 2 html
 """
 import sys
 import os
@@ -8,7 +8,8 @@ import os
 
 def main():
     if len(sys.argv) < 3:
-        print("Usage: ./markdown2html.py README.md README.html", file=sys.stderr)
+        print("Usage: ./markdown2html.py README.md README.html",
+              file=sys.stderr)
         sys.exit(1)
 
     markdown_file = sys.argv[1]
