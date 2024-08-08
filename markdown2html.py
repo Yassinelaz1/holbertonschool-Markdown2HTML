@@ -1,31 +1,30 @@
 #!/usr/bin/python3
-"""This script convert a markdown file into html file"""
-
+"""
+markdown 2 html
+"""
 import sys
+import os
+import hashlib
 
 
-def convert_markdown_to_html(input_file, output_file):
-    try:
-        with open(input_file, 'r') as md_file:
-            markdown_content = md_file.read()
-            converted = []
-            for line in markdown_content:
-                converted.append(line)
-            with open(output_file, 'w') as html_file:
-                for line in converted:
-                    html_file.write(line)
-    except FileNotFoundError:
-        sys.stderr.write(f"Missing {input_file}\n")
+def main():
+    """
+    Start the script
+    """
+
+    # Check if the number of arguments is correct
+    if len(sys.argv) < 3:
+        print("Usage: ./markdown2html.py README.md README.html",
+              file=sys.stderr)
         sys.exit(1)
+
+    # Check if the input file exists
+    if not os.path.isfile(sys.argv[1]):
+        print(f'Missing {sys.argv[1]}', file=sys.stderr)
+        sys.exit(1)
+
+    sys.exit(0)
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 3:
-        sys.stderr.write("Usage: ./markdown2html.py README.md README.html\n")
-        sys.exit(1)
-
-    input_file = sys.argv[1]
-    output_file = sys.argv[2]
-
-    convert_markdown_to_html(input_file, output_file)
-    sys.exit(0)
+    main()
