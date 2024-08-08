@@ -10,6 +10,7 @@ def main():
     """
     Start a script
     """
+
     if len(sys.argv) < 3:
         print("Usage: ./markdown2html.py README.md README.html",
               file=sys.stderr)
@@ -18,6 +19,10 @@ def main():
     if not os.path.isfile(sys.argv[1]):
         print(f'Missing {sys.argv[1]}', file=sys.stderr)
         sys.exit(1)
+
+    with open(sys.argv[1], 'r') as f:
+        content = f.readlines()
+
     sys.exit(0)
 
 
